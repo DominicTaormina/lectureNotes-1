@@ -58,7 +58,7 @@ Conclusion: Fred doesn't like pizza.
 
 
 
---> Is this a valid argument? 
+--> Is this a valid argument? yes, but we are assuming Fred is a person
 
 
 
@@ -78,16 +78,19 @@ I order fries or I order chips.
 
 
 
-- in English, how do we interpret "or"? 
+- in English, how do we interpret "or"? exclusive
 
 
 
-- in programming? 
+- in programming? || is inclusive
 
 
 
 
-"Or" in THIS class: 
+"Or" in THIS class: assume inclusive
+
+
+Mean exclusive: first or second, but not both.
 
 
 
@@ -98,7 +101,7 @@ I order fries or I order chips.
 Premise 1: I'll fold the laundry or I'll do the dishes.
 Premise 2: I don't fold the laundry.
 
---> What can I conclude? 
+--> What can I conclude? I'll do the dishes
 
 
 
@@ -115,7 +118,7 @@ if (num < 4 || x >= 10) {
 Suppose we know "statement" is executed
 --> What can we conclude? 
 
-
+x >= 10
 
 
 
@@ -131,7 +134,12 @@ if (num < 4 || x >= 10) {
 
 
 Suppose we know "statement" is executed
---> What can we conclude? 
+--> What can we conclude? both conditions must be true
+
+from outer if, num < 4
+from inner if, num > 2
+
+we know 2 < num < 4.  if num is an int, num must be 3.
 
 
 
@@ -144,7 +152,7 @@ What rule are we seeing with an "or" statement,
 where we know that one of the statements is NOT true?
 
 
-
+the other side is
 
 
 ////////////////////////////////////////////////////////
@@ -155,13 +163,15 @@ If it is raining, then I will get wet.
 It is raining.
 
 --> What can I conclude? 
-
+I will get wet
 
 
 
 How to write with -> symbol?
-    p:
-    q: 
+    p: It is raining
+    q: I will get wet
+
+    p -> q
 
 
 ////////////////////////////////////////////////////////
@@ -171,7 +181,7 @@ and we know that the "if" part is true?
 
     ...what can we always conclude?
 
-
+the then part is true
 
 
 
@@ -180,7 +190,7 @@ and we know that the "if" part is true?
 If I don't hear my alarm, then I will be late for class.
 I am late for class.
 
---> What can I conclude? 
+--> What can I conclude? nothing
 
 
 
@@ -192,7 +202,9 @@ I am late for class.
 If I don't hear my alarm, then I will be late for class.
 I hear my alarm.
 
---> What can I conclude? 
+--> What can I conclude? nothing
+
+might turn off alarm.
 
 
 
@@ -206,15 +218,15 @@ I hear my alarm.
 If I don't hear my alarm, then I will be late for class.
 I'm not late for class.
 
---> What can I conclude? 
+--> What can I conclude? I heard my alarm
 
-
+if i didn't, I would be late, but this contradicts with my not being late.
 
 
 
 is equivalent to (called the contrapositive):
 
-
+if p then q       is equivalent to       if not q then not p
 
 
 
@@ -244,6 +256,10 @@ if (num < 4 || x >= 10) {
 
 --> suppose y is 17 here. What do we know?
 
+can't conclude anything. y might have been 17 before the if then statement.
+
+(when y is defined and not 17) if statement is true because its the only way y could change.
+
 
 
 /////////////////////////////////////////////////////////
@@ -256,7 +272,7 @@ if (num < 4 || x >= 10) {
 
 --> suppose y is 17 here. Can we conclude anything now?
 
-
+if statement is false.  Both parts are false. num >= 4 and x < 10
 
 
 
@@ -294,8 +310,8 @@ Knights ALWAYS tell the truth, and knaves ALWAYS lie.
 
 Who can say, "I'm a knave"?  
 
-Can a knight? 
-Can a knave? 
+Can a knight? no, it would be a lie.
+Can a knave? no, that would be the truth.
 
 
 
@@ -309,13 +325,17 @@ Eve says, "I am a knave or Fred is a knight."
 
 What are Eve and Fred? 
 
+Suppose Eve is a knight.  Then Fred must be a knight in order for her full statement to be true.
+
+Suppose Eve is a knave.  This isn't possible for a knave - her statement must be true.
+
+They are both knights.
+
+(what does the "or" mean?)
 
 
-(what does the "or" mean?) 
 
-
-
-Her WHOLE statement is the or
+Her WHOLE statement is the or      inclusive
 
 /////////////////////////////////////////////////////////
 
@@ -324,13 +344,20 @@ You see two different inhabitants, Ava and Bob.
 Ava says that Bob is a knave.
 Bob says, "Neither Ava nor I are knaves."
 
+Bob: NOT(Ava is knave or I'm knave)
+    Equivalent to: Ava not a knave AND I'm not a knave.
+    equivalent to: Ava is a knight AND I'm a knight.
+
 
 Rewrite Bob: 
-
+    if Bob is a knight, is it possible Ava is a knave
 
 
 What are Ava and Bob? 
 
+Suppose Ava is a knight.  Bob must be a knave.  This works with Bob's statement since it would be correctly false. (as he would not be a knight)
+
+Suppose Ava is a knave.  Bob must be a knight.  Bob's statement would incorrectly be false, because Ava is not a knight.
 
 
 
