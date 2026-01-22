@@ -43,6 +43,11 @@ else {
     statements3;
 }
 
+know x < 3 || y > 4 is false
+so x >= 3 && y <= 4 
+
+know x < 5 && y == 7 is true
+conflicts with y <= 4
 
 
 --> is it possible for "statements2" to execute?7
@@ -67,7 +72,13 @@ Bill claims that it's false that Mae is a knave.
 Mae tells you, "Bill would tell you that I am a knave."
 
 What types are Sarah, Bill, and Mae?
+Sarah: Bill is a knight
+Bill: Mae is a knight
+Mae: Bill would say I'm a knave
 
+Suppose Sarah is a knight.  Then Bill must be a knight and Mae also must be a knight.  This doesn't wor, since Bill says that Mae is a knight.
+
+Suppose instead Sarah is a knave.  Then Bill and Mae must be knaves.  Bill would lie and say Mae is a knight, but Mae lies about this and says Bill would say knave.  Works.
 
 (How might we simplify everything?)
 
@@ -89,6 +100,10 @@ Unicorn says: "Yesterday was one of my lying days, too."
 
 What day is it?
 
+Sunday: Lion didn't lie yesterday and should be telling the truth.
+Tuesday/Wednesday/Firday/Saturday: Whoever is lying that also lied the day before, but should be lying about that. 
+Monday: Unicorn tells the truth Mon/Sun, should say they didn't lie
+Thursday: Lion tells truth, lied on Wednesday.  Unicorn correctly lies about lying on Wednesday.
 
 
 ////////////////////////////////
@@ -106,7 +121,7 @@ You see both of them together.
 The first one says: "I'm Tweedledum." 
 The second one says: "I'm Tweedledee."
 
-Which is which? What day is it?
+Which is which? What day is it?  Sunday.  Every other day they would give the same name.
 
 
 
@@ -138,6 +153,9 @@ The first one says: "Tweedledee owns the rattle."
 The second one says: "I'm Tweedledee!"
 
 Who gets the rattle?
+Suppose the first twin is telling the truth.  Rattle goes to Tweedledee.  Second twin must be lying so second twin is Tweedledum.  First twin is Tweedledee so first twin gets the rattle.
+
+Suppose instead the first twin must be lying.  Tweedledum owns the rattle.  Second twin is telling the truth, so they are Tweedledee.  First twin is Tweedledum.
 
 Who is who?
 
@@ -156,9 +174,15 @@ Gold casket: "The portrait is in this casket."
 Silver casket: "The portrait is not in this casket."
 Lead casket: "The portrait is not in the gold casket."
 
+they could all be false or just one could be true.
+
+Suppose it's in the gold.  Both gold and silver statements would be true, so not the case.
+Suppose it is silver.  Just one statement is true, so this works.
+Suppose it is lead.  Two statements are true, so this doesn't work. 
+
 Where is the portrait?
 
-
+Silver
 
 
 
@@ -196,7 +220,7 @@ Albert says: "Then I also know when Cheryl's birthday is."
 
 When is it?
 
-
+July 16th
 
 
 ///////////////////////////////////
@@ -217,7 +241,7 @@ Basic operations:
 
 
 Basic logic gates (draw on board)
-
+AND, OR, NOT
 
 gates still used to design circuits
 
@@ -236,28 +260,28 @@ AND:
 
 p q  #  p ∧ q
 --------------
-T T  #    
-T F  #    
-F T  #     
-F F  #    
+T T  #    T
+T F  #    F
+F T  #    F
+F F  #    F
 
 
 OR:
 
 p q  #  p ∨ q
 --------------
-T T  #    
-T F  #    
-F T  #    
-F F  #    
+T T  #    T
+T F  #    T
+F T  #    T
+F F  #    F
 
 
 NOT:
 
 p  # ¬p
 --------
-T  # 
-F  # 
+T  # F
+F  # T
 
 ////////////////////////////////////////////////
 
@@ -275,15 +299,15 @@ Otherwise we have not.
 
 p q  #  p → q
 --------------
-T T  #    
-T F  #      
-F T  #    
-F F  #     
+T T  #    T
+T F  #    F  
+F T  #    T
+F F  #    T 
 
 /////////////////////////////////////////
 
 How does the implies operator relate to programming?
-
+if statements
 
 
 //////////////////////////////////////////
