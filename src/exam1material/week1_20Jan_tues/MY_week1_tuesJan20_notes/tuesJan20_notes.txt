@@ -11,7 +11,7 @@ What is this class?
     - identifying equivalent programs
     - simplifying programs
     - formally describing what programs do
-- basics of proving correctness of programs (why?)
+- basics of proving correctness of programs (why?)r
 
 
 Syllabus
