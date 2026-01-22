@@ -354,7 +354,7 @@ Consider ¬p ∨ q ∧ r.
 
 Order of operations
 
-In math?
+In math?  (), exponent, Multiplacation, Division, Addition, Subtraction.
 
 
 
@@ -363,6 +363,7 @@ For logic statements:
 
 From highest (happens first) to lowest (happens last) precedence:
 
+(), ¬, ∧, ∨ 
 
 ////////////////////////////////////////////////
 
