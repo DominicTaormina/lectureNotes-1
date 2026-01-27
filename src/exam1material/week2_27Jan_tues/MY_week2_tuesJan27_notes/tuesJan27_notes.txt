@@ -4,8 +4,10 @@ Homework 1 due tonight
         You know the thief was either Agatha, Ferdinand, or Carl.
             (some statements)
         You later learn that Carl and Ferdinand were not both telling the truth.
+NOT possible: Carl telling truthm Ferdinand telling truth
+ANYTHING ELSE is possible.
 
-    What are the possible cases?
+    What are the possible cases?  3 cases. Each could be the thief.
     How to check if a possible case works?
 
 
@@ -39,10 +41,10 @@ When is this true? When is this false?
 
 p q  #  p → q
 --------------
-T T  #    
-T F  #    
-F T  #    
-F F  #    
+T T  #    T
+T F  #    F
+F T  #    T
+F F  #    T
 
 //////////////////////////////////////
 
@@ -61,8 +63,10 @@ Consider ¬p ∨ q → p ∧ ¬q
 
 --> what operation do we do first?
 
-
-
+¬ - highest priority
+∧ 
+∨
+→ (lowest precedence)
 
 Add () to show the order of operations.
 
@@ -85,12 +89,12 @@ r is F
 
 Order of operations
     ¬ evaluates right to left
-        ¬¬p is equivalent to....
+        ¬¬p is equivalent to.... ¬(¬p)
 
 
     ∧ and ∨ evaluate left to right
-        p ∧ q ∧ r is equivalent to....
-        p ∨ q ∨ r is equivalent to....
+        p ∧ q ∧ r is equivalent to.... (p ∧ q) ∧ r
+        p ∨ q ∨ r is equivalent to.... (p ∨ q) ∨ r
 
 
     → evaluates right to left
@@ -103,7 +107,7 @@ Order of operations
 //////////////////////////////////////////
 
 Top-level operator (what happens LAST?)
-
+has the lowest precedence
 
 ¬p ∨ q ∧ r
 
